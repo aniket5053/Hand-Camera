@@ -4,7 +4,7 @@ from hand_tracking import HandTracker
 from buttons import draw_buttons, check_button_clicks, initialize_buttons
 
 # Initialize video capture for the live camera feed 
-vidcap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 # Set the window width and height
 winwidth = 1280
@@ -22,7 +22,7 @@ selected_color_button = None
 hand_tracker = HandTracker()
 
 while True:
-    ret, frame = vidcap.read()
+    ret, frame = cap.read()
     if not ret:
         break
 
@@ -50,10 +50,10 @@ while True:
     # Display the combined frame
     cv2.imshow('Hand Tracking', combined_frame)
 
-    # Exit loop by pressing 'q'
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    # Exit loop by pressing 'esc'
+    if cv2.waitKey(1) & 0xFF == 27:
         break
 
 # Release the video capture and close windows
-vidcap.release()
+cap.release()
 cv2.destroyAllWindows()
