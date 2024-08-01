@@ -47,7 +47,7 @@ def check_button_clicks(frame, hand_landmarks, buttons, color_buttons, drawing_m
             thumb_tip_coords = (int(thumb_tip.x * w), int(thumb_tip.y * h))
 
             distance = calculate_distance(index_finger_tip_coords, thumb_tip_coords)
-            distance_threshold = 30
+            distance_threshold = 40
 
             if (buttons["erase"]["topleft"][0] <= index_finger_tip_coords[0] <= buttons["erase"]["bottomright"][0] and
                 buttons["erase"]["topleft"][1] <= index_finger_tip_coords[1] <= buttons["erase"]["bottomright"][1]):
